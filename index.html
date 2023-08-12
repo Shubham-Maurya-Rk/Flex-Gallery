@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Images</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kings&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            /* background-color: red; */
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex: 1;
+            cursor: pointer;
+            transition: all ease-in-out .5s;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.116);
+            background-blend-mode: darken;
+        }
+        .box>*{
+            transition: all ease-in-out .5s;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 3px 2px black;
+        }
+        .box>:first-child{
+            transform: translateY(-100%);
+        }
+        .box>:last-child{
+            transform: translateY(100%);
+        }
+        .box.open-active>:first-child{
+            transform: translateY(0);
+        }
+        .box.open-active>:last-child{
+            transform: translateY(0);
+        }
+        p{
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Roboto Slab', serif;
+        }
+        h2{
+            font-size: 120px;
+            color: rgb(255, 255, 255);
+            font-family: 'Kings', cursive;
+        }
+        .b1{
+            background-image: url(./imgs/b2.jpg);
+        }
+        .b2{
+            background-image: url(./imgs/b1.jpg);
+        }
+        .b3{
+            background-image: url(./imgs/b3.jpg);
+        }
+        .b4{
+            background-image: url(./imgs/b4.jpg);
+        }
+        .b5{
+            background-image: url(./imgs/b5.jpg);
+        }
+        .active{
+            animation: open 1.5s ;
+            flex:4;
+        }
+        
+        
+        @keyframes open {
+            0%{
+                flex: 1;
+            }20%{
+                flex: 0.7;
+            }100%{
+                flex: 4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box b1" title="Click to open">
+            <p>Kanha</p>
+            <h2>K</h2>
+            <p>Kanhaiya</p>
+        </div>
+        <div class="box b2"  title="Click to open">
+            <p>RadhaRaman</p>
+            <h2>R</h2>
+            <p>Ram</p>
+        </div>
+        <div class="box b3"  title="Click to open">
+            <p>Shyamsundar</p>
+            <h2>S</h2>
+            <p>Shyamashyam</p>
+        </div>
+        <div class="box b4"  title="Click to open">
+            <p>Narayana</p>
+            <h2>N</h2>
+            <p>Nanda Gopala</p>
+        </div>
+        <div class="box b5"  title="Click to open">
+            <p>Arjun Sakha</p>
+            <h2>A</h2>
+            <p>Anand</p>
+        </div>
+    </div>
+    <script>
+        let box=document.querySelectorAll('.box');
+        box.forEach(bx=>{
+            bx.addEventListener('click',()=>{
+                bx.classList.toggle('active')
+                setTimeout(() => {
+                    bx.classList.toggle('open-active')
+                }, 90);
+            })
+        })
+    </script>
+</body>
+</html>
